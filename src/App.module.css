@@ -1,0 +1,10 @@
+.formBuilder {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 25% 1fr 25%;
+}
+
+.main {
+  background-color: #f3f3f3;
+  padding: 1.5rem;
+}

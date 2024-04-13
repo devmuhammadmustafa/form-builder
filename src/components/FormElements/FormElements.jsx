@@ -1,18 +1,19 @@
 import Button from "../ui/Button/Button";
 import { FormItem } from "../../components";
 import styles from "./FormElements.module.css";
-const FormElements = () => {
+const FormElements = ({ items }) => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("form submit");
+  };
   return (
-    <form className={styles.form}>
-      <FormItem>
-        <h1>hello</h1>
-      </FormItem>
-      <FormItem>
-        <h1>hello</h1>
-      </FormItem>
-      <FormItem>
-        <h1>hello</h1>
-      </FormItem>
+    <form onSubmit={handleSubmit} className={styles.form}>
+      {items.map((item) => (
+        <FormItem key={item.id} id={item.id}>
+          <h1>{item.label}</h1>
+        </FormItem>
+      ))}
+
       <Button>Submit</Button>
     </form>
   );

@@ -18,8 +18,8 @@ const FormElements = ({ items, setItems, handleDeleteItem, setActiveItem }) => {
 
     if (!over || active.id === over.id) return;
 
-    const oldIndex = items.findIndex((item) => item.id === active.id);
-    const newIndex = items.findIndex((item) => item.id === over.id);
+    const oldIndex = items.findIndex((item) => item.key === active.id);
+    const newIndex = items.findIndex((item) => item.key === over.id);
 
     setItems((prevItems) => arrayMove(prevItems, oldIndex, newIndex));
   }

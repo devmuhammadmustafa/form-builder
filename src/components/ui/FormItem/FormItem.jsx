@@ -6,7 +6,7 @@ import { PiDotsSixVerticalThin } from "react-icons/pi";
 
 const FormItem = ({ children, id, uId, handleDeleteItem, setActiveItem }) => {
   const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ uId });
+    useSortable({ id });
 
   const style = {
     transform: transform ? `translate(${transform.x}px, ${transform.y}px)` : "",

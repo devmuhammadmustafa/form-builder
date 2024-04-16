@@ -1,5 +1,5 @@
-import styles from "./Button.module.css";
+import style from "./Button.module.css";
 const Button = ({ children }) => {
-  return <button className={styles.btn}>{children}</button>;
+  return <button className={`btn btnDark ${style.submit}`}>{children}</button>;
 };
 export default Button;

@@ -1,33 +1,38 @@
+import { useSortable } from "@dnd-kit/sortable";
 import styles from "./FormItem.module.css";
 import { FiEdit3 } from "react-icons/fi";
 import { IoTrashOutline } from "react-icons/io5";
 import { PiDotsSixVerticalThin } from "react-icons/pi";
-import { useSortable } from "@dnd-kit/sortable";
-import { CSS } from "@dnd-kit/utilities";
-const FormItem = ({ children, id }) => {
+
+const FormItem = ({ children, id, uId, handleDeleteItem, setActiveItem }) => {
   const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id: `${id}` });
+    useSortable({ uId });
+
   const style = {
-    transform: CSS.Transform.toString(transform),
+    transform: transform ? `translate(${transform.x}px, ${transform.y}px)` : "",
     transition,
   };
+
   return (
-    <div
-      className={styles.item}
-      ref={setNodeRef}
-      {...attributes}
-      {...listeners}
-      {...style}
-    >
-      <span className={styles.title}>
+    <div className={styles.item}>
+      <span className={styles.title} onClick={() => setActiveItem(uId)}>
         Smiley field (Example) <FiEdit3 />
       </span>
       <div className={styles.actions}>
-        <IoTrashOutline />
+        <IoTrashOutline onClick={() => handleDeleteItem(uId)} />
         <PiDotsSixVerticalThin />
       </div>
-      <div className={styles.content}>{children}</div>
+      <div
+        className={styles.content}
+        ref={setNodeRef}
+        {...attributes}
+        {...listeners}
+        style={style}
+      >
+        {children}
+      </div>
     </div>
   );
 };
+
 export default FormItem;

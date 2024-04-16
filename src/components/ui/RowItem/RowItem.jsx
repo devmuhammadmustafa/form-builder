@@ -1,21 +1,20 @@
 import styles from "./RowItem.module.css";
-import { useSortable } from "@dnd-kit/sortable";
+import { useDraggable } from "@dnd-kit/core";
 import { CSS } from "@dnd-kit/utilities";
-const RowItem = ({ component, activeId }) => {
+
+const RowItem = ({ component }) => {
   const { id, icon, label, dots } = component;
-  const { attributes, listeners, setNodeRef, transform, transition } =
-    useSortable({ id: `${id}` });
-  const style = {
-    transform: CSS.Transform.toString(transform),
-    transition,
-  };
+  const { attributes, listeners, setNodeRef, transform } = useDraggable({
+    id,
+    data: component,
+  });
   return (
     <article
       className={styles.row}
       ref={setNodeRef}
+      style={{ transform: CSS.Translate.toString(transform) }}
       {...attributes}
       {...listeners}
-      {...style}
     >
       {icon}
       <h4 className={styles.title}>{label}</h4>

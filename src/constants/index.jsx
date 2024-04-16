@@ -16,6 +16,20 @@ export const components = [
         icon: <FaRegSmile />,
         label: "Smiley rating",
         dots: <PiDotsSix />,
+        type: "icon",
+        icons: [
+          { icon: <FaRegSmile />, label: "Excellent" },
+          { icon: <FaRegSmile />, label: "Good" },
+          { icon: <FaRegSmile />, label: "Natural" },
+          { icon: <FaRegSmile />, label: "Bad" },
+          { icon: <FaRegSmile />, label: "Unacceptable" },
+        ],
+        settings: [
+          {
+            title: "test",
+            type: "icon",
+          },
+        ],
       },
       {
         id: 2,
@@ -70,12 +84,6 @@ export const components = [
   {
     title: "Question Type2",
     items: [
-      {
-        id: 10,
-        icon: <FaRegSmile />,
-        label: "Smiley rating",
-        dots: "...",
-      },
       {
         id: 11,
         icon: <MdSettingsVoice />,

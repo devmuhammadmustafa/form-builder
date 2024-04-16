@@ -3,8 +3,8 @@ import styles from "./ComponentPanel.module.css";
 const ComponentPanel = ({ components }) => {
   return (
     <aside className={styles.column}>
-      {components?.map((component, index) => (
-        <ComponentRow component={component} key={index} />
+      {components?.map((component, i) => (
+        <ComponentRow component={component} key={i} />
       ))}
     </aside>
   );

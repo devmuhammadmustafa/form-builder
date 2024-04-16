@@ -4,6 +4,8 @@
   --font-main: "Roboto", sans-serif;
   --color-bg: #ffffff;
   --color-text: #000000;
+  --transition: 1s ease all;
+  --color-dark: rgb(33, 33, 212);
 }
 
 *,
@@ -48,4 +50,15 @@ h3 {
 
 h4 {
   font-size: 1.2rem;
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.btnDark {
+  background-color: var(--color-dark);
+  color: var(--color-bg);
 }
